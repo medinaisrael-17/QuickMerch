@@ -1,0 +1,36 @@
+/* Generic */
+
+body {
+    background-color: rgb(163, 188, 202);
+    position: relative;
+}
+
+#title {
+    text-align: center;
+}
+
+.card {
+    width: 80%;
+    position: absolute;
+    top: 11rem;
+    left: 10%;
+}
+
+.card-body {
+    border-style: solid;
+    border-color: black; 
+    border-width: .5px;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+
+}
+
+/* Footer */
+footer {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

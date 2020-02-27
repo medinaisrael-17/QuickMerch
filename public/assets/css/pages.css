@@ -1,0 +1,44 @@
+/* Generic */
+body {
+    background-color: rgb(163, 188, 202);
+    position: relative;
+}
+
+/* Nav */
+#myNav {
+    border-bottom: .5px solid #2a3033;
+    width: 100%;
+    background-color: #edf0f2;
+}
+
+#page {
+    font-size: 25px;
+    margin: auto;
+}
+
+/* Footer */
+
+footer {
+    border-top: .5px solid #2a3033;
+    background-color: #edf0f2;
+    text-align: center;
+    font-size: 28px;
+    height: 8%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+#pagination {
+    margin-top: 2%;
+    margin-left: 13%;
+    width: 90%;
+}
+
+footer a {
+    color: #4d585e;
+}
+
+footer i {
+    margin-right: 19%;
+}
