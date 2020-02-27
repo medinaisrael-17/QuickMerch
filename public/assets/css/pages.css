@@ -1,7 +1,6 @@
 /* Generic */
 body {
     background-color: rgb(163, 188, 202);
-    position: relative;
 }
 
 /* Nav */
@@ -14,6 +13,31 @@ body {
 #page {
     font-size: 25px;
     margin: auto;
+}
+
+/* Inner */
+
+#welcomeDiv, #overview {
+    padding: 10px;
+    position: relative;
+}
+
+#time {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+}
+
+
+/* Card */
+.card {
+    height: 15em;
+    margin-bottom: 10px;
+}
+
+.storeImage {
+    height: 100%;
+    width: 25%;
 }
 
 /* Footer */
