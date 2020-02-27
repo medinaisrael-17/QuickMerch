@@ -31,6 +31,7 @@ body {
 
 /* Card */
 .card {
+    flex-direction: row !important;
     height: 15em;
     margin-bottom: 10px;
 }
@@ -38,6 +39,15 @@ body {
 .storeImage {
     height: 100%;
     width: 35%;
+}
+
+.content {
+    width: 65%;
+    padding: 10px;
+}
+
+.location {
+    font-size: 18px;
 }
 
 /* Footer */
