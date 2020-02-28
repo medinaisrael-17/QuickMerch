@@ -22,6 +22,10 @@ body {
     position: relative;
 }
 
+#overview {
+    margin-bottom: 50px;
+}
+
 #time {
     position: absolute;
     top: 15%;
@@ -49,6 +53,50 @@ body {
 .location {
     font-size: 18px;
 }
+
+/* My Own Card */
+
+#routePreview {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.myOverviewCard {
+    margin-right: 10px;
+    width: 35%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.smallContent {
+    padding: 10px;
+}
+
+.smallContent h5 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+/* Button */
+
+#myButton {
+    border-width: 0 1px 4px 1px;
+    background: #eeeeee;
+    border-color: #e2e2e2;
+    font-weight: bold;
+}
+
+#toRoutes {
+    color: #555555;
+}
+
 
 /* Footer */
 
