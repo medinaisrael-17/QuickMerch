@@ -97,6 +97,15 @@ body {
     color: #555555;
 }
 
+/* Profile page */
+
+#profileContainer {
+    padding: 10px;
+}
+
+#profilePicture {
+    border-radius: 50%;
+}
 
 /* Footer */
 
