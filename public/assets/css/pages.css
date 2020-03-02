@@ -104,7 +104,18 @@ body {
 }
 
 #profilePicture {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 15px;
     border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    
+}
+
+#profileContainer h5:last-of-type {
+    margin-bottom: 25px;
 }
 
 /* Footer */
