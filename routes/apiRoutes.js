@@ -12,6 +12,7 @@ module.exports = function (app) {
     app.post("/api/signup", function (req, res) {
         db.User.create({
             email: req.body.email,
+            name: req.body.name,
             password: req.body.password
         })
             .then(function () {
@@ -29,6 +30,7 @@ module.exports = function (app) {
         else {
             res.json({
                 email: req.user.email,
+                name: req.user.name,
                 id: req.user.id
             });
         }
