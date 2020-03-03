@@ -1,8 +1,14 @@
 /* Generic */
 
+html{ 
+    overflow-x: hidden;
+    background-color: rgb(163, 188, 202) !important; 
+}
+
 body {
+    overflow-x: hidden;
+    height: 100vh;
     background-color: rgb(163, 188, 202);
-    position: relative;
 }
 
 #title {
