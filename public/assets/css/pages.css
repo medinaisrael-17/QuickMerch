@@ -119,6 +119,10 @@ body {
     margin-bottom: 25px;
 }
 
+#myButton a {
+    color: #212529;
+}
+
 /* Footer */
 
 footer {
