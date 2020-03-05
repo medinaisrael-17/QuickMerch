@@ -42,4 +42,25 @@ module.exports = function (app) {
             });
         }
     });
+
+    app.get("/api/user_routes", function (req, res) {
+        if (!req.user) {
+            return res.json({})
+        }
+
+        console.log(req.body);
+
+        db.User.findOne({
+            where: {
+                id: req.body.id
+            },
+            // include: { model: db.Route, attributes: { exclude: ["password"] } },
+            include: [db.Route],
+            attributes: {
+                exclude: ["password"]
+            }
+        }).then(function (dbUserRoutes) {
+            res.json(dbUserRoutes);
+        })
+    })
 };
