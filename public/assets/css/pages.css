@@ -1,7 +1,18 @@
 /* Generic */
+html {
+    background-color: rgb(163, 188, 202) !important;
+}
 body {
     background-color: rgb(163, 188, 202);
     height: 100vh;
+}
+
+.text-secondary {
+    margin: auto;
+}
+
+hr {
+    border-top: 1px solid #2a3033 !important
 }
 
 /* Nav */
@@ -36,12 +47,14 @@ body {
 
 /* Card */
 .card {
+    border: 1px solid #2a3033;
     flex-direction: row !important;
     height: 15em;
     margin-bottom: 10px;
 }
 
 .storeImage {
+    border-right: 1px solid #2a3033;
     height: 100%;
     width: 35%;
 }
@@ -71,8 +84,12 @@ body {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid #2a3033;
     border-radius: .25rem;
+}
+
+.card-img-top {
+    border-bottom: 1px solid #2a3033;
 }
 
 .smallContent {
@@ -134,6 +151,7 @@ footer {
     width: 100%;
     position: fixed;
     bottom: 0;
+    left: 0;
 }
 
 #pagination {

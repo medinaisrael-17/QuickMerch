@@ -45,16 +45,16 @@ module.exports = function (app) {
         }
     });
 
-    app.get("/api/user_routes", function (req, res) {
+    app.get("/api/user_routes/:routeId", function (req, res) {
         if (!req.user) {
             return res.json({})
         }
 
-        console.log(req.body);
+        console.log(req.params.routeId);
 
         db.User.findOne({
             where: {
-                id: req.body.id
+                id: req.params.routeId
             },
             // include: { model: db.Route, attributes: { exclude: ["password"] } },
             include: [db.Route],
