@@ -1,7 +1,8 @@
 $(document).ready(function () {
     const signUpForm = $("form.signup");
     const emailInput = $("input#email-input");
-    const nameInput = $("input#name-input");
+    const firstNameInput = $("input#firstName-input");
+    const lastNameInput = $("input#lastName-input");
     const phoneInput = $("input#phone-input");
     const passwordInput = $("input#password-input");
 
@@ -9,27 +10,31 @@ $(document).ready(function () {
         event.preventDefault();
         const userData = {
             email: emailInput.val().trim(),
-            name: nameInput.val().trim(),
+            firstName: firstNameInput.val().trim(),
+            lastName: lastNameInput.val().trim(),
             phoneNumber: phoneInput.val().trim(),
             password: passwordInput.val()
         };
         console.log(userData);
 
-        if (!userData.email || !userData.name || !userData.phoneNumber || !userData.password) {
+        if (!userData.email || !userData.firstName || !userData.lastName ||  !userData.phoneNumber || !userData.password) {
             return;
         }
 
-        signUpUser(userData.email, userData.name, userData.phoneNumber, userData.password);
+        signUpUser(userData.email, userData.firstName, userData.lastName, userData.phoneNumber, userData.password);
         emailInput.val("");
-        nameInput.val("");
+        firstNameInput.val("");
+        lastNameInput.val("")
         phoneInput.val("");
         passwordInput.val("");
     });
 
-    function signUpUser(email, name, phone, password) {
+    function signUpUser(email, firstName, lastName, phone, password) {
         $.post("/api/signup", {
             email: email,
             name: name,
+            firstName: firstName,
+            lastName: lastName,
             phoneNumber: phone,
             password: password
         }).then(function (data) {
