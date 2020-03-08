@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     $.get("/api/user_data").then(function (data) {
         console.log(data);
-        $("#username").text(data.name);
+        $("#username").text(data.firstName);
         user_id = data.id
         console.log(user_id);
         const userObj = {
