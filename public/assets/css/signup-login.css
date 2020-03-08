@@ -13,9 +13,20 @@ body {
 
 #title {
     text-align: center;
+    position: fixed;
+    top: -15px;
+    left: 25%;
+
 }
 
 .card {
+    width: 80%;
+    position: absolute;
+    top: 5rem;
+    left: 10%;
+}
+
+#loginCard {
     width: 80%;
     position: absolute;
     top: 11rem;
