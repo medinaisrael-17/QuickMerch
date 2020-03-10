@@ -1,29 +1,29 @@
-$(document).ready(function () {
+$(document).ready(pageLoad())
 
+async function pageLoad() {
     const overViewDiv = $("#overview");
 
     let routeData;
 
     let user_id;
 
-    $.get("/api/user_data").then(function (data) {
-        console.log(data);
-        $("#username").text(data.name);
+    const { id } = await getUserdata();
 
-        user_id = data.id;
+    user_id = id;
 
-        
-            $("#myButton").text("Show Completed Routes");
+    const { Routes } = await getRoutes(user_id);
 
-            if (routeData.length === 0) {
-                overViewDiv.html("");
-                const h1 = $(`<h1>No Routes Assigned</h1>`);
-                overViewDiv.append(h1)
-            }
+    console.log(Routes);
 
-            loadIncompleted(routeData);
-        
-    })
+    routeData = Routes;
+
+    if (routeData.length === 0) {
+        overViewDiv.html("");
+        const h1 = $(`<h1>No Routes Assigned</h1>`);
+        overViewDiv.append(h1)
+    }
+
+    loadIncompleted(routeData);
 
     $("#myButton").click(function () {
         const status = $(this).attr("status");
@@ -43,22 +43,37 @@ $(document).ready(function () {
 
     $(document).on("click", ".complete", function () {
         const id = $(this).attr("id");
-        // $.put(`/api/routes/${id}`, {status: true}).then(loadIncompleted(routeData));
         $.ajax({
             url: `/api/routes/${id}`,
             method: "PUT",
-            data: {status: true},
-           
-        }).then(function() {
+            data: { status: true },
+
+        }).then(function () {
+            getRoutes(user_id);
             loadIncompleted(routeData);
         })
     })
 
+    async function setRoutes(id) {
+        const { Routes } = await getRoutes()
+        routeData = Routes;
+        loadIncompleted(Routes);
+    }
+
+
+    function getUserdata() {
+        return new Promise((resolve, reject) => {
+            $.get("/api/user_data").then(data => {
+                resolve(data);
+            })
+        });
+    }
     function getRoutes(id) {
-        $.get(`/api/user_routes/${id}`).then(function (res) {
-            console.log(res);
-            routeData = res.Routes;
-        })
+        return new Promise((resolve, reject) => {
+            $.get(`/api/user_routes/${id}`).then(data => {
+                resolve(data);
+            });
+        });
     }
 
     function loadCompleted(data) {
@@ -144,7 +159,6 @@ $(document).ready(function () {
 
 
     }
-})
 
-
+}
 
