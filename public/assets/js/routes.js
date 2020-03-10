@@ -4,15 +4,15 @@ $(document).ready(function () {
 
     let routeData;
 
+    let user_id;
+
     $.get("/api/user_data").then(function (data) {
         console.log(data);
         $("#username").text(data.name);
 
-        const user_id = data.id;
+        user_id = data.id;
 
-        $.get(`/api/user_routes/${user_id}`).then(function (res) {
-            console.log(res);
-            routeData = res.Routes;
+        
             $("#myButton").text("Show Completed Routes");
 
             if (routeData.length === 0) {
@@ -22,7 +22,7 @@ $(document).ready(function () {
             }
 
             loadIncompleted(routeData);
-        })
+        
     })
 
     $("#myButton").click(function () {
@@ -43,8 +43,23 @@ $(document).ready(function () {
 
     $(document).on("click", ".complete", function () {
         const id = $(this).attr("id");
-        $.put(`/api/routes/${id}`, {status: true}).then(loadIncompleted(routeData));
+        // $.put(`/api/routes/${id}`, {status: true}).then(loadIncompleted(routeData));
+        $.ajax({
+            url: `/api/routes/${id}`,
+            method: "PUT",
+            data: {status: true},
+           
+        }).then(function() {
+            loadIncompleted(routeData);
+        })
     })
+
+    function getRoutes(id) {
+        $.get(`/api/user_routes/${id}`).then(function (res) {
+            console.log(res);
+            routeData = res.Routes;
+        })
+    }
 
     function loadCompleted(data) {
         const completedData = [];
