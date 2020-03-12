@@ -19,6 +19,9 @@ $(document).ready(function () {
 
 
     $.get("/api/user_data").then(function (data) {
+        if (data.email === "isrmed_34@yahoo.com") {
+            window.location.replace("/admin/home");
+        }
         console.log(data);
         $("#username").text(data.firstName);
         user_id = data.id

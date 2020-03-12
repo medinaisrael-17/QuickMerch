@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
     <!-- My Stuff -->
-    <link href="./assets/css/pages.css" rel="stylesheet">
+    <link href="/assets/css/pages.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,28 +31,30 @@
     </nav>
 
     <div id="welcomeDiv">
-        <h3>Hello <span id="username">User</span></h3>
+        <h3>Welcome Admin</h3>
         <h6><span id="date"></span> </h6>
         <span id="time"></span>
     </div>
 
     <div id="overview">
-        <h4>Overview</h4>
+        <h4>What Would You Like To Do?</h4>
         <hr>
-        <div id="routePreview">
-            <div class="spinner-border text-secondary" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <button class="btn btn-default" id="myButton"><a id="toRoutes" href="/routes">View All
+        <div id="options">
+            <button class="btn btn-default navigation" id="myButton"><a href="/admin/createRoutes">Create
                 Routes</a></button>
-
+            <button class="btn btn-default navigation" id="myButton"><a href="/admin/assignRoutes">Assign A
+                Route</a></button>
+            <button class="btn btn-default navigation" id="myButton"><a href="/admin/directory">View
+                Employees</a></button>
+            <button class="btn btn-default navigation" id="myButton"><a href="/logout">Logout</a></button>
+        </div>
     </div>
     <footer>
-        <div id="pagination">
-            <a href="/home"><i class="fas fa-warehouse"></i></a>
-            <a href="/routes"><i class="fas fa-truck"></i></a>
-            <a href="/profile"><i class="fas fa-user-alt"></i></a>
+        <div id="adminpagination">
+            <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
+            <a href="/admin/createRoutes"><i class="fas fa-edit"></i></a>
+            <a href="/admin/assignRoutes"><i class="fas fa-exchange-alt"></i></a>
+            <a href="/admin/directory"><i class="fas fa-address-book"></i></a>
         </div>
     </footer>
 
@@ -60,7 +62,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- My Stuff -->
-    <script src="./assets/js/home.js"></script>
+
 
 </body>
 

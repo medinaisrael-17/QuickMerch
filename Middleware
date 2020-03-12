@@ -1,0 +1,15 @@
+Middleware
+
+Request => isAuth => Handler
+            |
+            v
+            res.redirect()
+
+router.use(isAdmin);
+router.get("/home");
+/admin/home
+/user/home
+/home
+    ->if Admin -> admin.html
+    ->Logged in -> user.html
+    ->Not logged in -> login.html

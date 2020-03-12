@@ -2,12 +2,19 @@ const path = require("path");
 
 const isAuth = require("../config/middleware/isAuth");
 
+const isAdmin = require("../config/middleware/isAdmin");
+
 module.exports = function (app) {
     app.get("/", function (req, res) {
-        if (req.user) {
-            res.redirect("/home");
+        if (req.user && req.user.isAdmin) {
+            return res.redirect("/admin/home");
         }
-            res.sendFile(path.join(__dirname, "../public/signup.html"))
+        else if (req.user) {
+            return res.redirect("/home");
+        } else {
+            return res.sendFile(path.join(__dirname, "../public/signup.html"))
+        }
+
     });
 
 
@@ -17,6 +24,10 @@ module.exports = function (app) {
         }
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
+
+    app.get("/admin/home", isAdmin, function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/adminHome.html"));
+    })
 
     app.get("/home", isAuth, function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
