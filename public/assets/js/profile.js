@@ -1,12 +1,24 @@
 $(document).ready(function () {
     $.get("/api/user_data").then(function (data) {
-        console.log(data);
         $("#username").text(`${data.firstName} ${data.lastName}`);
-        $("#contact").text(data.phoneNumber);
+
+        const formattedNumber = formatPhoneNumber(data.phoneNumber);
+
+        $("#contact").text(formattedNumber);
+        
         $("#userEmail").text(data.email);
     })
 
-    $.get("/api");
+    function formatPhoneNumber(phoneNumber) {
+        const cleaned = ('' + phoneNumber).replace(/\D/g, '')
+
+        const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+
+        if (match) {
+            return `(${match[1]})${match[2]}-${match[3]}`
+        }
+        return null;
+    }
 })
 
 
