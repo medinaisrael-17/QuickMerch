@@ -146,6 +146,40 @@ hr {
     color: #212529;
 }
 
+/* Directory */
+#employees {
+    padding: 5px;
+}
+
+#employees td {
+    max-width: 14em !important;
+    overflow: scroll;
+}
+
+#employeeTable {
+    width: 100%;
+    background-color: #edf0f2;
+    font-size: 12.5px;
+}
+
+td, th {
+    border: 1px solid #2a3033;
+    text-align: center;
+}
+
+tr:not(:first-of-type) {
+    height: 3em;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+input.directPhoneNumber {
+    text-align: center;
+    width: 95%;
+}
+
 /* Footer */
 
 footer {

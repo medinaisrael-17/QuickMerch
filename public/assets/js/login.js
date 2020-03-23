@@ -11,8 +11,6 @@ $(document).ready(function () {
             password: passwordInput.val()
         }
 
-        console.log(userData);
-
         if (!userData.email || !userData.password) {
             return;
         }

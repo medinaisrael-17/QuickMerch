@@ -30,6 +30,16 @@ module.exports = function (app) {
         res.redirect("/");
     })
 
+    app.get("/api/allusers", function(req, res) {
+        db.User.findAll({
+            attributes: {
+                exclude: ["password"]
+            }
+        }).then(function(data) {
+            res.json(data);
+        })
+    })
+
     app.get("/api/user_data", function (req, res) {
         if (!req.user) {
             res.json({});
