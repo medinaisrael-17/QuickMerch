@@ -2,74 +2,147 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Routes</title>
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create Routes</title>
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
-    <!-- Data Balloon -->
-    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+  <!-- Data Balloon -->
+  <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
 
-    <!-- My Stuff -->
-    <link href="/assets/css/pages.css" type="text/css" rel="stylesheet">
+  <!-- My Stuff -->
+  <link href="/assets/css/pages.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar" id="myNav">
-        <h1 id="page">Create Routes</h1>
-    </nav>
+  <nav class="navbar" id="myNav">
+    <h1 id="page">Create Routes</h1>
+  </nav>
 
-    <div id="createdRoutes">
-        
-    </div>
+  <div id="createdRoutes">
+    <h3>Existing Routes</h3>
+    <hr>
+    <table id="routesTable">
+      
+    </table>
+  </div>
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Success</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            Successfully Created The Route!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
+  <br>
+
+  <div id="createRouteForm">
+    <h3>Create A New Route</h3>
+    <hr>
+    <form id="routeForm">
+
+      <div id="routeStore">
+        <h5>Store: </h5>
+        <select id="storeSelector">
+          <option value="H-E-B">H-E-B</option>
+          <option value="Walmart">Walmart</option>
+          <option value="Randalls">Randalls</option>
+        </select>
       </div>
 
-    <footer>
-        <div id="adminpagination">
-            <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
-            <a href="/admin/createRoutes"><i class="fas fa-edit"></i></a>
-            <a href="/admin/assignRoutes"><i class="fas fa-exchange-alt"></i></a>
-            <a href="/admin/directory"><i class="fas fa-address-book"></i></a>
+
+      <br>
+
+      <div id="routeLocation">
+        <h5>Location: </h5>
+        <input id="storeLocation" />
+      </div>
+
+
+      <br>
+      <div id="routeTime">
+        <h5>Time: </h5>
+        <select id="hour">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option selected value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+
+        <p>:</p>
+
+        <select id="minute">
+
+        </select>
+
+
+        <select id="meridiem">
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+
+      </div>
+
+      <br>
+
+      <div id="routeProduct">
+        <h5>Product:</h5>
+        <input id="storeProduct" />
+      </div>
+
+      <button class="btn btn-default displayButton" id="myButton"> Create</button> 
+    </form>
+  </div>
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-    </footer>
+        <div class="modal-body">
+          Successfully Created The Route!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <footer>
+    <div id="adminpagination">
+      <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
+      <a href="/admin/create"><i class="fas fa-edit"></i></a>
+      <a href="/admin/assign"><i class="fas fa-exchange-alt"></i></a>
+      <a href="/admin/directory"><i class="fas fa-address-book"></i></a>
+    </div>
+  </footer>
 
-    <!-- My Stuff -->
-    <script src="/assets/js/adminRoute.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <!-- My Stuff -->
+  <script src="/assets/js/adminRoute.js"></script>
 
 </body>
 

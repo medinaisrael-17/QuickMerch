@@ -1,14 +1,13 @@
 const db = require("../models");
 
 module.exports = function (app) {
-    // app.get("/api/routes", function(req, res) {
-    //     const query = {};
-    //     if (req.query.user_id) {
-    //         query.UserId = req.query.user_id
-    //     }
 
-    //     db.
-    // })
+    app.get("/api/allroutes", function(req, res) {
+        db.Route.findAll({}).then(function(data) {
+            res.json(data);
+        })
+    })
+
 
     //create the routes
     app.post("/api/routes", function (req, res) {

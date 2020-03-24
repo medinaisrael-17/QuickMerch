@@ -37,7 +37,9 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/adminDirectory.html"));
     })
 
-
+    app.get("/admin/create", isAdmin, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/adminCreate.html"))
+    })
 
     // User Routes
     app.get("/home", isAuth, function (req, res) {

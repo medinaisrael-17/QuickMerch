@@ -180,6 +180,52 @@ input.directPhoneNumber {
     width: 95%;
 }
 
+/* Creating Routes  */
+
+#createRouteForm {
+    margin-bottom: 5em;
+}
+
+#createdRoutes, #createRouteForm {
+    padding: 10px;
+}
+
+#routesTable {
+    width: 100%;
+    background-color: #edf0f2;
+    font-size: 12.5px;
+}
+
+#routeForm {
+    padding: 10px;
+    background-color: #f7fcff;
+    border-radius: 2%;
+
+}
+
+#routeForm input {
+    width: 100%;
+}
+
+#routeForm button {
+    margin-top: 2em;
+}
+
+#storeSelector {
+    width: 100%;
+}
+
+#routeTime {
+    height: 2em;
+    margin-top: 10px;
+}
+
+#routeTime p, #routeTime h5, #routeTime select {
+    margin-right: 5px;
+    float: left;
+}
+
+
 /* Footer */
 
 footer {
