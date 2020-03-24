@@ -57,6 +57,11 @@ function makeTable(data) {
 $("#myButton").on("click", function (e) {
     e.preventDefault();
 
+    if (!$("#storeLocation").val() || !$("#storeProduct").val()) {
+        $("#failureModal").modal("show");
+        return;
+    }
+
     const hour = $("#hour").val();
     const minute = $("#minute").val();
     const meridiem = $("#meridiem").val();
@@ -74,6 +79,7 @@ $("#myButton").on("click", function (e) {
 
     $.post("/api/routes", newRoute).then(function () {
         getExistingRoutes();
+        $("#successModal").modal("show");
         $("#storeSelector").val("");
         $("#storeLocation").val("");
         $("#hour").val("7");
