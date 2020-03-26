@@ -148,13 +148,11 @@ hr {
 
 /* Admin Home */ 
 
-/* #options a {
-    width: 100%;
-} */
 
 /* Directory */
 #employees {
     padding: 5px;
+    margin-bottom: 3em;
 }
 
 #employees td {
@@ -231,6 +229,11 @@ input.directPhoneNumber {
     float: left;
 }
 
+/* Assigning Routes  */
+
+#assignedRoutes {
+    padding: 10px;
+}
 
 /* Footer */
 

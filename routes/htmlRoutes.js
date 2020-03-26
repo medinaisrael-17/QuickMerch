@@ -39,6 +39,10 @@ module.exports = function (app) {
 
     app.get("/admin/create", isAdmin, function(req, res) {
         res.sendFile(path.join(__dirname, "../public/adminCreate.html"))
+    });
+
+    app.get("/admin/assign", isAdmin, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/adminAssign.html"));
     })
 
     // User Routes
