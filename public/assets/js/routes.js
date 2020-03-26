@@ -1,4 +1,4 @@
-$(document).ready(pageLoad())
+$(document).ready(pageLoad());
 
 async function pageLoad() {
     // targets the overview div

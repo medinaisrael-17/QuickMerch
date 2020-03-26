@@ -1,3 +1,7 @@
+makeCards();
+
+populate();
+
 function getRoutes() {
     // $.get("/api/allroutes").then(function (data) {
     //     // console.log(data);
@@ -11,7 +15,13 @@ function getRoutes() {
     })
 }
 
-makeCards()
+function getEmployees() {
+    return new Promise((resolve, reject) => {
+        $.get(`/api/allusers`).then(data => {
+            resolve(data);
+        })
+    })
+}
 
 function getUserInfo(id) {
     return new Promise((resolve, reject) => {
@@ -23,6 +33,9 @@ function getUserInfo(id) {
 }
 
 async function makeCards() {
+    $("#showCards").html("");
+
+
     const routeData = await getRoutes()
 
     console.log(routeData);
@@ -49,7 +62,7 @@ async function makeCards() {
                     </div>
                 `)
 
-                $("#assignedRoutes").append(assingedCard);
+                $("#showCards").append(assingedCard);
             }
         }
         catch {
@@ -58,3 +71,46 @@ async function makeCards() {
 
     }
 }
+
+async function populate() {
+    const routeData = await getRoutes();
+    for (let i = 0; i < routeData.length; i++) {
+        try {
+            if (!routeData[i].isAssigned) {
+                const routeOption = $(`<option value=${routeData[i].id}>${routeData[i].store} | ${routeData[i].location} | ${routeData[i].time}</option>`);
+                $("#routeSelect").append(routeOption);
+            }
+        }
+        catch{
+            console.log(err);
+        }
+    }
+
+    const employeeData = await getEmployees()
+
+    for (let i = 0; i < employeeData.length; i++) {
+        if (!employeeData[i].isAdmin) {
+            const employeeOption = $(`<option value=${employeeData[i].id}>${employeeData[i].firstName} ${employeeData[i].lastName}</option>`)
+            $("#employeeSelect").append(employeeOption);
+        }
+
+    }
+}
+
+$("#myButton").on("click", function() {
+    const assinger = {
+        user_id: $("#employeeSelect").val(),
+        id: $("#routeSelect").val()
+    }
+
+    console.log(assinger);
+
+    $.ajax({
+        method: "PUT",
+        url: `/api/routes/`,
+        data: assinger
+    }).then(function(event) {
+        event.preventDefault();
+        $("#successModal").modal("show");
+    })
+})

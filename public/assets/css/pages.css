@@ -233,6 +233,12 @@ input.directPhoneNumber {
 
 #assignedRoutes {
     padding: 10px;
+    margin-bottom: 1em;
+}
+
+#assignARoute {
+    padding: 10px;
+    margin-bottom: 4em;
 }
 
 .left, .right {
@@ -267,6 +273,20 @@ input.directPhoneNumber {
     position: absolute;
     top: 36%;
     left: 40%;
+}
+
+#assignForm {
+    padding: 10px;
+    background-color: #f7fcff;
+    border-radius: 2%;
+}
+
+#employeeSelect, #routeSelect {
+    width: 100%;
+}
+
+#routeSelect {
+    margin-bottom: 2em;
 }
 
 /* Footer */

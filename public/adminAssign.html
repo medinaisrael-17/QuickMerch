@@ -34,22 +34,53 @@
     </nav>
 
     <div id="assignedRoutes">
-        <h3>Assigned Routes</h3>
+        <h3>Routes Assigned</h3>
+        <p><em>The routes shown have been assigned but not completed by the employee yet.</em></p>
         <hr />
-        <div class="card assigned-card">
-            <section class="left">
-                <h6>H-E-B</h6>
-                <p>Anderson Mill and 620</p>
-                <p>7:00 AM</p>
-                <i class="fas fa-exchange-alt assigner"></i>
-            </section>
-            <section class="right">
-                <img class="profilePicture" src="/assets/images/defaultProfile.png" />
-                <h6>Israel Medina </h6>
-            </section>
-        </div>
+        <div id="showCards"></div>
     </div>
 
+
+    <div id="assignARoute">
+        <h3>Assign A Route</h3>
+        <hr>
+        <form id="assignForm">
+            <h5>Select An Employee</h5>
+            <select id="employeeSelect">
+
+            </select>
+
+            <hr>
+
+            <h5>Select a Route</h5>
+            <select id="routeSelect">
+
+            </select>
+
+            <button class="btn btn-default displayButton" id="myButton"> Assign</button> 
+
+        </form>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Successfully Assigned The Route!
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default displayButton" id="myButton" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <footer>
