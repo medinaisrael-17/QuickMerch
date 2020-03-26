@@ -235,6 +235,40 @@ input.directPhoneNumber {
     padding: 10px;
 }
 
+.left, .right {
+    width: 50%;
+}
+
+.left {
+    padding: 26px;
+}
+
+.right {
+    text-align: center;
+    padding: 10px;
+}
+
+
+.profilePicture {
+    height: 8em;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.assigned-card {
+    height: 11em;
+    position: relative;
+}
+
+.assigner {
+    font-size: 40px;
+    position: absolute;
+    top: 36%;
+    left: 40%;
+}
+
 /* Footer */
 
 footer {

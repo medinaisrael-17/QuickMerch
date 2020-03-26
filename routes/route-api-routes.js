@@ -3,7 +3,9 @@ const db = require("../models");
 module.exports = function (app) {
 
     app.get("/api/allroutes", function(req, res) {
-        db.Route.findAll({}).then(function(data) {
+        db.Route.findAll({
+            inlcude: [db.User]
+        }).then(function(data) {
             res.json(data);
         })
     })
