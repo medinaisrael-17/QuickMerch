@@ -21,14 +21,14 @@ body {
 .card {
     width: 80%;
     position: absolute;
-    top: 5rem;
+    top: 10rem;
     left: 10%;
 }
 
 #loginCard {
     width: 80%;
     position: absolute;
-    top: 11rem;
+    top: 15rem;
     left: 10%;
 }
 
