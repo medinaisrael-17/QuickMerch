@@ -26,7 +26,12 @@ $(document).ready(function () {
             password: password
         })
             .then(function () {
-                window.location.replace("/home");
+                if ($("#admin").prop("checked") == true) {
+                    window.location.replace("/admin/home")
+                }
+                else if($("#admin").prop("checked") == false) {
+                    window.location.replace("/home")
+                }
             })
             .catch(function (err) {
                 console.log(err);
