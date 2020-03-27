@@ -47,18 +47,13 @@ body {
     position: relative;
 }
 
-.fa-eye {
+#eyeButton {
     position: absolute;
-    right: 5%;
-    bottom: 15%;
+    right: 4%;
+    bottom: 4%;
     font-size: 18px;
-}
-
-.fa-eye-slash {
-    position: absolute;
-    right: 5%;
-    bottom: 15%;
-    font-size: 18px;
+    background: transparent;
+    border: none;
 }
 
 /* Footer */
