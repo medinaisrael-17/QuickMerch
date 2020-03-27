@@ -14,6 +14,8 @@
 
     <!-- My Style -->
     <link href="./assets/css/signup-login.css" rel="stylesheet"  />
+
+    <link href="/favicon.ico" rel="icon" type="image/png" >
 </head>
 
 <body>
@@ -62,6 +64,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/signup.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("service-worker.js").then(reg => {
+              console.log("We found your service worker file!", reg);
+            });
+          });
+        }
+      </script>
 
 </body>
 
