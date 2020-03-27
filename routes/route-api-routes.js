@@ -44,6 +44,22 @@ module.exports = function (app) {
             });
     });
 
+    //unassign a route
+    app.put("/api/unassign", function(req, res) {
+        db.Route.update({
+            completed: false,
+            isAssigned: false,
+            UserId: null
+        },
+        {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(data) {
+            res.json(data);
+        })
+    })
+
     //update the routes completion 
     app.put("/api/routes/:routeId", function (req, res) {
         console.log(req.body)

@@ -148,6 +148,23 @@ hr {
 
 /* Admin Home */ 
 
+.unassign {
+    color: red;
+}
+
+#confirmModal h5 {
+    color: red;
+}
+
+#confirmModal .CONFIRM {
+    color: green;
+}
+
+#confirmModal .CANCEL {
+    color: red;
+}
+
+
 
 /* Directory */
 #employees {

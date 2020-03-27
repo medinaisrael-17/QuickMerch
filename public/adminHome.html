@@ -40,15 +40,63 @@
         <h4>What Would You Like To Do?</h4>
         <hr>
         <div id="options">
-            <button class="btn btn-default navigation" id="myButton"><a href="/admin/create">Create
-                Routes</a></button>
-            <button class="btn btn-default navigation" id="myButton"><a href="/admin/assign">Assign A
-                Route</a></button>
-            <button class="btn btn-default navigation" id="myButton"><a href="/admin/directory">View
-                Employees</a></button>
-            <button class="btn btn-default navigation" id="myButton"><a href="/logout">Logout</a></button>
+            <button class="btn btn-default navigation" id="myButton" data-location="create">Create
+                Routes</button>
+            <button class="btn btn-default navigation" id="myButton" data-location="assign">Assign A
+                Route</button>
+            <button class="btn btn-default navigation" id="myButton" data-location="directory">View
+                Employees</button>
+            <button class="btn btn-default navigation" id="myButton" data-location="logout">Logout</button>
+
+            <button class="btn btn-default navigation unassign" id="myButton" data-toggle="modal"
+                data-target="#confirmModal">Unassign ALL Routes</button>
         </div>
     </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">WARNING!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This will unassign ALL routes assinged to ALL employees. Please click "CONFIRM" to continue.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default CANCEL" id="myButton"
+                        data-dismiss="modal">CANCEL</button>
+                    <button type="button" class="btn btn-default CONFIRM" id="myButton">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sucessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Success!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    All Routes have been unassigned.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="myButton"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <footer>
         <div id="adminpagination">
             <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
@@ -62,7 +110,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- My Stuff -->
-
+    <script src="/assets/js/adminHome.js"></script>
 
 </body>
 

@@ -62,7 +62,7 @@ $(document).ready(function () {
                        <div class="smallContent">
                            <h5>${incompleteArr[i].location}</h5>
                            <p class="smallText"><em><span class="time">${incompleteArr[i].time}</span></em></p>
-                           <a href="/routes">Click for more...</a>
+
                        </div>
                    </div>
                        `);
@@ -76,7 +76,7 @@ $(document).ready(function () {
                        <div class="smallContent">
                            <h5>${incompleteArr[i].location}</h5>
                            <p class="smallText"><em><span class="time">${incompleteArr[i].time}</span></em></p>
-                           <a href="/routes">Click for more...</a>
+
                        </div>
                    </div>
                        `);
@@ -90,7 +90,6 @@ $(document).ready(function () {
                     <div class="smallContent">
                         <h5>${incompleteArr[i].location}</h5>
                         <p class="smallText"><em><span class="time">${incompleteArr[i].time}</span></em></p>
-                        <a href="/routes">Click for more...</a>
                     </div>
                 </div>
                     `)
