@@ -25,6 +25,9 @@ $(document).ready(function () {
         console.log(user_id);
 
         $.get(`/api/user_routes/${user_id}`).then(function (res) {
+            if (res.isAdmin === true) {
+                window.location.replace("/admin/home");
+            }
             console.log(res);
             const routeData = res.Routes;
             loadCards(routeData);
