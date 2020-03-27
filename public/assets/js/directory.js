@@ -38,7 +38,6 @@ function makeTable(data) {
                 <td>${data[i].firstName} ${data[i].lastName}</td>
                 <td><a href="mailto:${data[i].email}" target="_top">${data[i].email}</a></td>
                 <td><a href="sms:+1${data[i].phoneNumber}">${formattedNumber}</a></td>
-                <td><input readonly class="directPhoneNumber" value="${formattedNumber}"/></td>
             </tr>
         `)
             $("#employeeTable").append(tableElement);
