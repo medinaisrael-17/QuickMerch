@@ -13,7 +13,6 @@ body {
 
 #title {
     text-align: center;
-    position: fixed;
     top: -15px;
     left: 25%;
 
@@ -62,5 +61,5 @@ footer {
     text-align: center;
     width: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: 30px;
 }
