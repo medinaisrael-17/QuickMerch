@@ -4,18 +4,18 @@ $.get("/api/allusers").then(function (data) {
     makeTable(data);
 })
 
-$(document).on("click", ".directPhoneNumber", function () {
-    console.log($(this));
-    console.log($(this).val());
-    const numberToCopy = $(this);
-    numberToCopy.select();
-    //mobile
-    // numberToCopy.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    console.log("Copied " + numberToCopy.val());
-    $(".modal-body").text(`Copied ${numberToCopy.val()} to clipboard!`)
-    $("#exampleModalCenter").modal("show");
-})
+// $(document).on("click", ".directPhoneNumber", function () {
+//     console.log($(this));
+//     console.log($(this).val());
+//     const numberToCopy = $(this);
+//     numberToCopy.select();
+//     //mobile
+//     // numberToCopy.setSelectionRange(0, 99999);
+//     document.execCommand("copy");
+//     console.log("Copied " + numberToCopy.val());
+//     $(".modal-body").text(`Copied ${numberToCopy.val()} to clipboard!`)
+//     $("#exampleModalCenter").modal("show");
+// })
 
 function formatPhoneNumber(phoneNumber) {
     const cleaned = ('' + phoneNumber).replace(/\D/g, '')
@@ -37,6 +37,7 @@ function makeTable(data) {
             <tr>
                 <td>${data[i].firstName} ${data[i].lastName}</td>
                 <td><a href="mailto:${data[i].email}" target="_top">${data[i].email}</a></td>
+                <td><a href="sms:+1${data[i].phoneNumber}">${formattedNumber}</a></td>
                 <td><input readonly class="directPhoneNumber" value="${formattedNumber}"/></td>
             </tr>
         `)
