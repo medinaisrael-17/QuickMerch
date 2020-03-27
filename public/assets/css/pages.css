@@ -251,6 +251,13 @@ input.directPhoneNumber {
 #assignedRoutes {
     padding: 10px;
     margin-bottom: 1em;
+    position: relative;
+}
+
+.refreshButton {
+    position: absolute;
+    top: 1%;
+    right: 3%;
 }
 
 #assignARoute {
@@ -283,6 +290,14 @@ input.directPhoneNumber {
 .assigned-card {
     height: 11em;
     position: relative;
+}
+
+.incomplete {
+    border: 5px solid red;
+}
+
+.complete {
+    border: 5px solid green;
 }
 
 .assigner {

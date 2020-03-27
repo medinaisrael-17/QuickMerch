@@ -3,11 +3,6 @@ makeCards();
 populate();
 
 function getRoutes() {
-    // $.get("/api/allroutes").then(function (data) {
-    //     // console.log(data);
-    //     return data
-    // })
-
     return new Promise((resolve, reject) => {
         $.get(`/api/allroutes`).then(data => {
             resolve(data);
@@ -48,7 +43,31 @@ async function makeCards() {
                 console.log(`${firstName} ${lastName}`);
 
                 const assingedCard = $(`
-                    <div class="card assigned-card">
+                    <div class="card assigned-card incomplete">
+                        <section class="left">
+                            <h6>${routeData[i].store}</h6>
+                            <p>${routeData[i].location}</p>
+                            <p>${routeData[i].time}</p>
+                            <i class="fas fa-exchange-alt assigner"></i>
+                        </section>
+                        <section class="right">
+                            <img class="profilePicture" src="/assets/images/defaultProfile.png" />
+                            <h6>${`${firstName} ${lastName}`}</h6>
+                        </section>
+                    </div>
+                `)
+
+                $("#showCards").append(assingedCard);
+            }
+            else if ((routeData[i].isAssigned && routeData[i].completed)) {
+
+
+                const { firstName, lastName } = await getUserInfo(routeData[i].UserId);
+
+                console.log(`${firstName} ${lastName}`);
+
+                const assingedCard = $(`
+                    <div class="card assigned-card complete">
                         <section class="left">
                             <h6>${routeData[i].store}</h6>
                             <p>${routeData[i].location}</p>
@@ -73,6 +92,7 @@ async function makeCards() {
 }
 
 async function populate() {
+    $("#routeSelect").html("")
     const routeData = await getRoutes();
     for (let i = 0; i < routeData.length; i++) {
         try {
@@ -97,7 +117,8 @@ async function populate() {
     }
 }
 
-$("#myButton").on("click", function() {
+$(".assignButton").on("click", function (event) {
+    event.preventDefault();
     const assinger = {
         user_id: $("#employeeSelect").val(),
         id: $("#routeSelect").val()
@@ -109,8 +130,13 @@ $("#myButton").on("click", function() {
         method: "PUT",
         url: `/api/routes/`,
         data: assinger
-    }).then(function(event) {
-        event.preventDefault();
+    }).then(function (data) {
         $("#successModal").modal("show");
+        makeCards();
+        populate();
     })
+})
+
+$(".refreshButton").on("click", function() {
+    location.reload()
 })

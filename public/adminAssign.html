@@ -35,7 +35,8 @@
 
     <div id="assignedRoutes">
         <h3>Routes Assigned</h3>
-        <p><em>The routes shown have been assigned but not completed by the employee yet.</em></p>
+        <p><em>Routes in green are completed, routes in red are not.</em></p>
+        <button class="btn btn-default refreshButton" id="myButton"><i class="fas fa-sync-alt"></i></button>
         <hr />
         <div id="showCards"></div>
     </div>
@@ -57,7 +58,7 @@
 
             </select>
 
-            <button class="btn btn-default displayButton" id="myButton"> Assign</button> 
+            <button class="btn btn-default assignButton" id="myButton"> Assign</button> 
 
         </form>
     </div>
@@ -76,7 +77,7 @@
           Successfully Assigned The Route!
         </div>
         <div class="modal-footer">
-          <button class="btn btn-default displayButton" id="myButton" data-dismiss="modal">Close</button>
+          <button class="btn btn-default displayButton " id="myButton" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

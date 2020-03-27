@@ -79,7 +79,6 @@ module.exports = function (app) {
             where: {
                 id: req.params.routeId
             },
-            // include: { model: db.Route, attributes: { exclude: ["password"] } },
             include: [db.Route],
             attributes: {
                 exclude: ["password"]

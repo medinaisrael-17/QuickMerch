@@ -4,7 +4,8 @@ module.exports = function (app) {
 
     app.get("/api/allroutes", function(req, res) {
         db.Route.findAll({
-            inlcude: [db.User]
+            inlcude: [db.User],
+            order: [['store', "ASC"]]
         }).then(function(data) {
             res.json(data);
         })
