@@ -43,6 +43,24 @@ body {
 
 }
 
+.form-group {
+    position: relative;
+}
+
+.fa-eye {
+    position: absolute;
+    right: 5%;
+    bottom: 15%;
+    font-size: 18px;
+}
+
+.fa-eye-slash {
+    position: absolute;
+    right: 5%;
+    bottom: 15%;
+    font-size: 18px;
+}
+
 /* Footer */
 footer {
     font-size: 12px;
