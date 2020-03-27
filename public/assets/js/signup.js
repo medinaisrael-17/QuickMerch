@@ -47,4 +47,16 @@ $(document).ready(function () {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
+
+    $(document).on("click", ".fa-eye", function() {
+        $("#password-input").attr("type", "text");
+        $("#eye").removeClass("fa fa-eye");
+        $("#eye").addClass("fa-eye-slash");
+    })
+
+    $(document).on("click", ".fa-eye-slash", function() {
+        $("#password-input").attr("type", "password");
+        $("#eye").removeClass("fa fa-eye-slash");
+        $("#eye").addClass("fa fa-eye");
+    })
 })
