@@ -18,7 +18,17 @@ body {
 
 }
 
+.modal-body img {
+    width: 100%;
+}
+
+.modal-body img:first-of-type {
+    margin-bottom: 5%;
+}
+
 .card {
+    border: transparent !important;
+    background-color: transparent !important;
     width: 80%;
     position: absolute;
     top: 10rem;
@@ -44,6 +54,13 @@ body {
 
 .form-group {
     position: relative;
+}
+
+#myButton {
+    border-width: 0 1px 4px 1px;
+    background: #eeeeee;
+    border-color: #e2e2e2;
+    font-weight: bold;
 }
 
 #eyeButton {

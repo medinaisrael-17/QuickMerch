@@ -4,22 +4,27 @@ $(document).ready(function () {
     const visited = localStorage.getItem("visited");
 
     if (!visited) {
-        alert("You haven't been here yet!");
-        localStorage.setItem("visited", true);
+        $("#initial-modal").modal('show');
     }
 
-    // See if user is on Windows
-    if (navigator.userAgent.indexOf("Android") !== -1) {
-        alert("Welcome, Android user!");
-    }
-    // Then check for macOS
-    else if (navigator.userAgent.indexOf("iPhone") !== -1) {
-        alert("Welcome, iPhone user!");
-    }
-    // I give up
-    else {
-        alert("I don't know what you're using...");
-    }
+    $("#next-button").click(function () {
+        $("#initial-modal").modal("hide");
+        // See if user is on Windows
+        if (navigator.userAgent.indexOf("Android") !== -1) {
+
+        }
+        // Then check for macOS
+        else if (navigator.userAgent.indexOf("iPhone") !== -1) {
+            $("#iphone-modal-1").modal("show");
+            // localStorage.setItem("visited", true);
+        }
+        // I give up
+        else {
+            alert("I don't know what you're using...");
+        }
+    });
+
+
 
 
     const signUpForm = $("form.signup");
