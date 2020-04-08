@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $(document).click("button", function(event) {
+        event.preventDefault();
+    });
+
     const loginForm = $("form.login");
     const emailInput = $("input#email-input");
     const passwordInput = $("input#password-input");
