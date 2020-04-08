@@ -88,7 +88,7 @@ $(document).ready(function () {
             return;
         };
         
-        $("#alert .msg").text(err.responseJSON);
+        $("#alert .msg").text("Account Found! Please Log In.");
         $("#alert").fadeIn(500);
     }
 
