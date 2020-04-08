@@ -3,7 +3,7 @@ $(document).ready(function () {
     const emailInput = $("input#email-input");
     const passwordInput = $("input#password-input");
 
-    loginForm.on("submit", function (event) {
+    $(".login").on("click", function (event) {
         event.preventDefault();
 
         const userData = {
