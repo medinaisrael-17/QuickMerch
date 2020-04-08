@@ -12,7 +12,8 @@ $(document).ready(function () {
         
         // See if user is on Windows
         if (navigator.userAgent.indexOf("Android") !== -1) {
-
+            $("#android-modal-1").modal("show");
+            localStorage.setItem("visited", true);
         }
         // Then check for macOS
         else if (navigator.userAgent.indexOf("iPhone") !== -1) {
