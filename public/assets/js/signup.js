@@ -77,15 +77,18 @@ $(document).ready(function () {
 
     function handleLoginErr(err) {
         console.log(err);
-        if (err.responseJSON.errors[0].message == "users.email must be unique") {
+
+        const strErr = JSON.stringify(err.responseJSON);
+        const actaulErr = JSON.parse(strErr);
+
+        if (actaulErr.errors[0].message == "users.email must be unique") {
             console.log("In err");
             $("#alert .msg").text("Account Found! Please Log In.");
             $("#alert").fadeIn(500);
             return;
         };
-        const strErr = JSON.stringify(err.responseJSON);
-        console.log(strErr);
-        $("#alert .msg").text(strErr);
+        
+        $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
 
