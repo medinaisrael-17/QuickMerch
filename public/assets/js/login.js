@@ -16,6 +16,8 @@ $(document).ready(function () {
         }
 
         if (!userData.email || !userData.password) {
+            $("#alert .msg").text("Please Fill Every Field.");
+            $("#alert").fadeIn(500);
             return;
         }
 
@@ -33,22 +35,32 @@ $(document).ready(function () {
                 if ($("#admin").prop("checked") == true) {
                     window.location.replace("/admin/home")
                 }
-                else if($("#admin").prop("checked") == false) {
+                else if ($("#admin").prop("checked") == false) {
                     window.location.replace("/home")
                 }
             })
-            .catch(function (err) {
-                console.log(err);
-            })
+            .catch(handleLoginErr)
     }
 
-    $(document).on("click", ".fa-eye", function() {
+    function handleLoginErr(err) {
+        console.log(err);
+        if (err.status == 401) {
+            console.log("caught the err");
+            $("#alert .msg").text("Incorrect Username or Password!");
+            $("#alert").fadeIn(500);
+            return;
+        }
+        $("#alert .msg").text(err.responseJSON);
+        $("#alert").fadeIn(500);
+    }
+
+    $(document).on("click", ".fa-eye", function () {
         $("#password-input").attr("type", "text");
         $("#eye").removeClass("fa fa-eye");
         $("#eye").addClass("fa-eye-slash");
     })
 
-    $(document).on("click", ".fa-eye-slash", function() {
+    $(document).on("click", ".fa-eye-slash", function () {
         $("#password-input").attr("type", "password");
         $("#eye").removeClass("fa fa-eye-slash");
         $("#eye").addClass("fa fa-eye");

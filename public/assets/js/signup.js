@@ -48,6 +48,8 @@ $(document).ready(function () {
         console.log(userData);
 
         if (!userData.email || !userData.firstName || !userData.lastName || !userData.phoneNumber || !userData.password) {
+            $("#alert .msg").text("Please Fill Every Field.");
+            $("#alert").fadeIn(500);
             return;
         }
 
@@ -74,6 +76,13 @@ $(document).ready(function () {
     }
 
     function handleLoginErr(err) {
+        console.log(err);
+        if (err.responseJSON.errors[0].message == "users.email must be unique") {
+            console.log("In err");
+            $("#alert .msg").text("Account Found! Please Log In.");
+            $("#alert").fadeIn(500);
+            return;
+        }
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
