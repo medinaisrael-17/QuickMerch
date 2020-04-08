@@ -9,6 +9,7 @@ $(document).ready(function () {
 
     $("#next-button").click(function () {
         $("#initial-modal").modal("hide");
+        
         // See if user is on Windows
         if (navigator.userAgent.indexOf("Android") !== -1) {
 
@@ -16,7 +17,7 @@ $(document).ready(function () {
         // Then check for macOS
         else if (navigator.userAgent.indexOf("iPhone") !== -1) {
             $("#iphone-modal-1").modal("show");
-            // localStorage.setItem("visited", true);
+            localStorage.setItem("visited", true);
         }
         // I give up
         else {
