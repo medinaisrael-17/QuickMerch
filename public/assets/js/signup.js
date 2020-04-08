@@ -36,7 +36,7 @@ $(document).ready(function () {
     const phoneInput = $("input#phone-input");
     const passwordInput = $("input#password-input");
 
-    $(".sign-up").on("click", function (event) {
+    signUpForm.on("submit", function (event) {
         event.preventDefault();
         const userData = {
             email: emailInput.val().trim(),

@@ -1,13 +1,13 @@
 $(document).ready(function () {
-    $(document).click("button", function(event) {
-        event.preventDefault();
-    });
+    // $(document).click("button", function(event) {
+    //     event.preventDefault();
+    // });
 
     const loginForm = $("form.login");
     const emailInput = $("input#email-input");
     const passwordInput = $("input#password-input");
 
-    $(".login").on("click", function (event) {
+    loginForm.on("submit", function (event) {
         event.preventDefault();
 
         const userData = {
