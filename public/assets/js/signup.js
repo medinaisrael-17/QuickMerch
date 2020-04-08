@@ -82,8 +82,10 @@ $(document).ready(function () {
             $("#alert .msg").text("Account Found! Please Log In.");
             $("#alert").fadeIn(500);
             return;
-        }
-        $("#alert .msg").text(err.responseJSON);
+        };
+        const strErr = JSON.stringify(err.responseJSON);
+        console.log(strErr);
+        $("#alert .msg").text(strErr);
         $("#alert").fadeIn(500);
     }
 
