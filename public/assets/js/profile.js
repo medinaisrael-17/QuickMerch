@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $(".edit").click(function() {
+        $("#comingSoon").modal("show");
+    })
+
     $.get("/api/user_data").then(function (data) {
         $("#username").text(`${data.firstName} ${data.lastName}`);
 

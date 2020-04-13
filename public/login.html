@@ -15,7 +15,6 @@
 
     <!-- My Style -->
     <link href="./assets/css/signup-login.css" rel="stylesheet" />
-    <link rel="manifest" href="manifest.webmanifest" />
 </head>
 
 <body>
@@ -64,16 +63,6 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="./assets/js/login.js"></script>
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("service-worker.js").then(reg => {
-                    console.log("We found your service worker file!", reg);
-                });
-            });
-        }
-    </script>
-
 </body>
 
 </html>

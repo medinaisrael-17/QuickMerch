@@ -3,5 +3,9 @@ module.exports = function (req, res, next) {
         return next();
     }
 
+    if (req.user && !req.user.isAdmin) {
+        res.redirect("/home");
+    }
+
     return res.redirect("/");
 }
