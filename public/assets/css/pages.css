@@ -4,7 +4,6 @@ html {
 }
 body {
     background-color: rgb(163, 188, 202);
-    /* height: 100vh; */
 }
 
 .text-secondary {
@@ -294,7 +293,7 @@ input.directPhoneNumber {
 
 .location {
     width: 6em;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .incomplete {
