@@ -46,7 +46,7 @@ async function makeCards() {
                     <div class="card assigned-card incomplete">
                         <section class="left">
                             <h6>${routeData[i].store}</h6>
-                            <p>${routeData[i].location}</p>
+                            <p class="location">${routeData[i].location}</p>
                             <p>${routeData[i].time}</p>
                             <i class="fas fa-exchange-alt assigner"></i>
                         </section>
@@ -70,7 +70,7 @@ async function makeCards() {
                     <div class="card assigned-card complete">
                         <section class="left">
                             <h6>${routeData[i].store}</h6>
-                            <p>${routeData[i].location}</p>
+                            <p class="location">${routeData[i].location}</p>
                             <p>${routeData[i].time}</p>
                             <i class="fas fa-exchange-alt assigner"></i>
                         </section>

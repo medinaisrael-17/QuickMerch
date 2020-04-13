@@ -292,6 +292,11 @@ input.directPhoneNumber {
     position: relative;
 }
 
+.location {
+    width: 6em;
+    font-size: 18px;
+}
+
 .incomplete {
     border: 5px solid red;
 }
@@ -301,10 +306,10 @@ input.directPhoneNumber {
 }
 
 .assigner {
-    font-size: 40px;
+    font-size: 35px;
     position: absolute;
     top: 36%;
-    left: 40%;
+    left: 42%;
 }
 
 #assignForm {
