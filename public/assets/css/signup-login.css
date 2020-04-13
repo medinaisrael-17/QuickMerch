@@ -22,7 +22,7 @@ body {
     width: 100%;
 }
 
-.modal-body img:first-of-type {
+.modal-body img {
     margin-bottom: 5%;
 }
 

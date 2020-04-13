@@ -22,7 +22,8 @@ $(document).ready(function () {
         }
         // I give up
         else {
-            alert("I don't know what you're using...");
+            $("#computer-modal-1").modal("show");
+            localStorage.setItem("visited", true);
         }
     });
 
