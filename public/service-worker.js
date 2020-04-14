@@ -33,7 +33,7 @@ const FILES_TO_CACHE = [
     '/assets/images/icons/icon-512x512.png',
 ];
 
-const CACHE_NAME = "static-cache-v1.0.03";
+const CACHE_NAME = "static-cache-v1.0.04";
 const DATA_CACHE_NAME = "data-cache-v1"
 
 //install 
