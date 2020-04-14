@@ -342,9 +342,8 @@ footer {
 
 #adminpagination {
     display: flex;
-    margin-top: 2%;
-    margin-left: 12%;
-    width: 90%;
+    margin-top: 1.5%;
+    justify-content: space-around;
 }
 
 #adminpagination a:not(:first-of-type) {
@@ -357,15 +356,11 @@ footer {
 }
 
 #pagination {
-    margin-top: 2%;
-    margin-left: 13%;
-    width: 90%;
+    margin-top: 1.5%;
+    display: flex;
+    justify-content: space-around;
 }
 
 footer a {
     color: #4d585e;
-}
-
-footer i {
-    margin-right: 19%;
 }
