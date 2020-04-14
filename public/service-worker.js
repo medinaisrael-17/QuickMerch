@@ -33,7 +33,7 @@ const FILES_TO_CACHE = [
     '/assets/images/icons/icon-512x512.png',
 ];
 
-const CACHE_NAME = "static-cache-v2";
+const CACHE_NAME = "static-cache-v1.0.01";
 const DATA_CACHE_NAME = "data-cache-v1"
 
 //install 
@@ -95,4 +95,10 @@ self.addEventListener("fetch", function (evt) {
             })
         })
     )
+});
+
+self.addEventListener('message', function (event) {
+    if (event.data.action === 'skipWaiting') {
+        self.skipWaiting();
+    }
 })

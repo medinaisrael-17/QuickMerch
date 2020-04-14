@@ -179,7 +179,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="./assets/js/signup.js"></script>
-    <script>
+    <!-- <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
                 navigator.serviceWorker.register("service-worker.js").then(reg => {
@@ -187,7 +187,7 @@
                 });
             });
         }
-    </script>
+    </script> -->
 
     <script>
         let newWorker;
@@ -202,19 +202,29 @@
                     newWorker = reg.installing;
 
                     newWorker.addEventListener("statechange", () => {
-                        switch(newWorker.state) {
-                            case 'installed' :
-                                
-                            if (navigator.serviceWorker.controller) {
-                                $("#")
-                            }
+                        switch (newWorker.state) {
+                            case 'installed':
+
+                                if (navigator.serviceWorker.controller) {
+                                    $("#update-modal-1").modal("show");
+                                }
+
+                                break;
                         }
                     })
                 })
             })
-        }
+        };
 
+        let refreshing;
 
+        navigator.serviceWorker.addEventListener("controllerchange", function () {
+            if (refreshing) { return; }
+
+            window.location.reload();
+
+            refreshing = true;
+        })
     </script>
 
 </body>
