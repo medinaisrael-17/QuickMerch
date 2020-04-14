@@ -21,9 +21,10 @@ module.exports = function (app) {
 
     //delete the routes
     app.delete("/api/routes/:routeId", function (req, res) {
+        console.log(req.params.routeId)
         db.Route.destroy({
             where: {
-                id: req.params.id
+                id: req.params.routeId
             }
         }).then(function (dbRoute) {
             res.json(dbRoute);

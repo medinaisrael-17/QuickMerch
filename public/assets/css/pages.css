@@ -203,10 +203,14 @@ input.directPhoneNumber {
 /* Creating Routes  */
 
 #createRouteForm {
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 }
 
-#createdRoutes, #createRouteForm {
+#deleteRouteForm {
+    margin-bottom: 8em;
+}
+
+#createdRoutes, #createRouteForm, #deleteRouteForm {
     padding: 10px;
 }
 
@@ -243,6 +247,10 @@ input.directPhoneNumber {
 #routeTime p, #routeTime h5, #routeTime select {
     margin-right: 5px;
     float: left;
+}
+
+#routeForm select {
+    margin-bottom: 0;
 }
 
 /* Assigning Routes  */

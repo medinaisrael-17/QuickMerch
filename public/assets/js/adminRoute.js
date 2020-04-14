@@ -13,7 +13,24 @@ getExistingRoutes();
 function getExistingRoutes() {
     $.get("/api/allroutes").then(function (data) {
         console.log(data);
-        makeTable(data)
+        makeTable(data);
+
+
+        $("#routeSelect").html("");
+
+        const initialOpt = `<option value="none" selected disabled hidden> Select a Route </option> `
+
+        $("#routeSelect").append(initialOpt);
+
+        for (let i = 0; i < data.length; i++) {
+            try {
+                const routeOption = $(`<option value=${data[i].id}>${data[i].store} | ${data[i].location} | ${data[i].time}</option>`);
+                $("#routeSelect").append(routeOption);
+            }
+            catch{
+                console.log(err);
+            }
+        }
     })
 }
 
@@ -54,7 +71,20 @@ function makeTable(data) {
     }
 }
 
-$("#myButton").on("click", function (e) {
+$(".delete-route").click(function(e){
+    e.preventDefault();
+
+    id = $("#routeSelect").val();
+
+    $.ajax({
+        method: "DELETE",
+        url: `/api/routes/${id}`
+    }).then(function(data) {
+        window.location.reload();
+    })
+}) 
+
+$(".CREATE").on("click", function (e) {
     e.preventDefault();
 
     if (!$("#storeLocation").val() || !$("#storeProduct").val()) {
