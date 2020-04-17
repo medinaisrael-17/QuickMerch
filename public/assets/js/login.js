@@ -7,6 +7,14 @@ $(document).ready(function () {
     const emailInput = $("input#email-input");
     const passwordInput = $("input#password-input");
 
+
+    $("#email-input").change(function(e) {
+        if ($("#email-input").val() == "isrmed_34@yahoo.com") {
+            $("#admin").css("display", "inline");
+            $("#adminLabel").css("display", "inline");
+        }
+    })
+ 
     loginForm.on("submit", function (event) {
         event.preventDefault();
 

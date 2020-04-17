@@ -55,6 +55,14 @@ body {
     position: relative;
 }
 
+#admin {
+    display: none;
+}
+
+#adminLabel {
+    display: none;
+}
+
 #myButton {
     border-width: 0 1px 4px 1px;
     background: #eeeeee;
