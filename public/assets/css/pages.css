@@ -48,7 +48,7 @@ hr {
 .card {
     border: 1px solid #2a3033;
     flex-direction: row !important;
-    height: 15em;
+    height: 16em;
     margin-bottom: 10px;
 }
 
