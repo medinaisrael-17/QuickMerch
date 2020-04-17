@@ -1,10 +1,25 @@
-makeCards();
+// makeCards();
 
 populate();
+
+$("#cardShowSelect").change(function () {
+    let user_id = $("#cardShowSelect").val();
+
+
+    makeCards(user_id);
+})
 
 function getRoutes() {
     return new Promise((resolve, reject) => {
         $.get(`/api/allroutes`).then(data => {
+            resolve(data);
+        })
+    })
+}
+
+function getIndRoutes(id) {
+    return new Promise((resolve, reject) => {
+        $.get(`/api/user_routes/${id}`).then(data => {
             resolve(data);
         })
     })
@@ -27,27 +42,36 @@ function getUserInfo(id) {
     })
 }
 
-async function makeCards() {
+async function makeCards(id) {
     $("#showCards").html("");
 
 
-    const routeData = await getRoutes()
+    const routeData = await getIndRoutes(id);
 
     console.log(routeData);
 
-    for (let i = 0; i < routeData.length; i++) {
-        try {
-            if (routeData[i].isAssigned && !routeData[i].completed) {
-                const { firstName, lastName } = await getUserInfo(routeData[i].UserId);
+    let firstName = routeData.firstName;
 
-                console.log(`${firstName} ${lastName}`);
+    let lastName = routeData.lastName;
+
+    let loopThru = routeData.Routes;
+
+    if(loopThru.length === 0) {
+        const h1 = $(`<h1>${firstName} ${lastName} Has No Routes Assigned</h1>`);
+
+        $("#showCards").append(h1);
+    }
+
+    for (let i = 0; i < loopThru.length; i++) {
+        try {
+            if (loopThru[i].isAssigned && !loopThru[i].completed) {
 
                 const assingedCard = $(`
                     <div class="card assigned-card incomplete">
                         <section class="left">
-                            <h6>${routeData[i].store}</h6>
-                            <p class="location">${routeData[i].location}</p>
-                            <p>${routeData[i].time}</p>
+                            <h6>${loopThru[i].store}</h6>
+                            <p class="location">${loopThru[i].location}</p>
+                            <p>${loopThru[i].time}</p>
                             <i class="fas fa-exchange-alt assigner"></i>
                         </section>
                         <section class="right">
@@ -59,19 +83,14 @@ async function makeCards() {
 
                 $("#showCards").append(assingedCard);
             }
-            else if ((routeData[i].isAssigned && routeData[i].completed)) {
-
-
-                const { firstName, lastName } = await getUserInfo(routeData[i].UserId);
-
-                console.log(`${firstName} ${lastName}`);
+            else if ((loopThru[i].isAssigned && loopThru[i].completed)) {
 
                 const assingedCard = $(`
                     <div class="card assigned-card complete">
                         <section class="left">
-                            <h6>${routeData[i].store}</h6>
-                            <p class="location">${routeData[i].location}</p>
-                            <p>${routeData[i].time}</p>
+                            <h6>${loopThru[i].store}</h6>
+                            <p class="location">${loopThru[i].location}</p>
+                            <p>${loopThru[i].time}</p>
                             <i class="fas fa-exchange-alt assigner"></i>
                         </section>
                         <section class="right">
@@ -93,6 +112,9 @@ async function makeCards() {
 
 async function populate() {
     $("#routeSelect").html("")
+    $("#employeeSelect").html("")
+    $("#cardShowSelect").html("")
+
     const routeData = await getRoutes();
     for (let i = 0; i < routeData.length; i++) {
         try {
@@ -110,10 +132,20 @@ async function populate() {
 
     for (let i = 0; i < employeeData.length; i++) {
         if (!employeeData[i].isAdmin) {
-            const employeeOption = $(`<option value=${employeeData[i].id}>${employeeData[i].firstName} ${employeeData[i].lastName}</option>`)
+            const employeeOption = $(`<option value=${employeeData[i].id}>${employeeData[i].firstName} ${employeeData[i].lastName}</option>`);
             $("#employeeSelect").append(employeeOption);
         }
+    }
 
+    const initialOpt = `<option value="none" selected disabled hidden> Select an Employee </option> `;
+
+    $("#cardShowSelect").append(initialOpt);
+
+    for (let i = 0; i < employeeData.length; i++) {
+        if (!employeeData[i].isAdmin) {
+            const employeeOption = $(`<option value=${employeeData[i].id}>${employeeData[i].firstName} ${employeeData[i].lastName}</option>`);
+            $("#cardShowSelect").append(employeeOption);
+        }
     }
 }
 
@@ -132,11 +164,11 @@ $(".assignButton").on("click", function (event) {
         data: assinger
     }).then(function (data) {
         $("#successModal").modal("show");
-        makeCards();
         populate();
+        $("#cardShowSelect").val($("#employeeSelect").val());
     })
 })
 
-$(".refreshButton").on("click", function() {
+$(".refreshButton").on("click", function () {
     location.reload()
 })

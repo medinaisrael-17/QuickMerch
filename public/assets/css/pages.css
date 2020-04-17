@@ -266,6 +266,11 @@ input.directPhoneNumber {
     position: relative;
 }
 
+#cardShowSelect {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
 .refreshButton {
     position: absolute;
     top: 1%;

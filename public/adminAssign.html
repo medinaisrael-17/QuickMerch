@@ -2,68 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assign Routes</title>
-    <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Assign Routes</title>
+  <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
-    <!-- Data Balloon -->
-    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
+  <!-- Data Balloon -->
+  <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
 
-    <!-- My Stuff -->
-    <link href="/assets/css/pages.css" type="text/css" rel="stylesheet">
+  <!-- My Stuff -->
+  <link href="/assets/css/pages.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar" id="myNav">
-        <h1 id="page">Assign Routes</h1>
-    </nav>
+  <nav class="navbar" id="myNav">
+    <h1 id="page">Assign Routes</h1>
+  </nav>
 
-    <div id="assignedRoutes">
-        <h3>Routes Assigned</h3>
-        <p><em>Routes in green are completed, routes in red are not.</em></p>
-        <button class="btn btn-default refreshButton" id="myButton"><i class="fas fa-sync-alt"></i></button>
-        <hr />
-        <div id="showCards"></div>
-    </div>
+  <div id="assignedRoutes">
+    <h3>Routes Assigned</h3>
+    <p><em>Routes in green are completed, routes in red are not.</em></p>
+    <button class="btn btn-default refreshButton" id="myButton"><i class="fas fa-sync-alt"></i></button>
+    <hr />
+    <h5>Select An Employee</h5>
+    <select id="cardShowSelect">
+
+    </select>
+    <div id="showCards"></div>
+  </div>
 
 
-    <div id="assignARoute">
-        <h3>Assign A Route</h3>
-        <hr>
-        <form id="assignForm">
-            <h5>Select An Employee</h5>
-            <select id="employeeSelect">
+  <div id="assignARoute">
+    <h3>Assign A Route</h3>
+    <hr>
+    <form id="assignForm">
+      <h5>Select An Employee</h5>
+      <select id="employeeSelect">
 
-            </select>
+      </select>
 
-            <hr>
+      <hr>
 
-            <h5>Select a Route</h5>
-            <select id="routeSelect">
+      <h5>Select a Route</h5>
+      <select id="routeSelect">
 
-            </select>
+      </select>
 
-            <button class="btn btn-default assignButton" id="myButton"> Assign</button> 
+      <button class="btn btn-default assignButton" id="myButton"> Assign</button>
 
-        </form>
-    </div>
+    </form>
+  </div>
 
-    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -84,20 +88,20 @@
   </div>
 
 
-    <footer>
-        <div id="adminpagination">
-            <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
-            <a href="/admin/create"><i class="fas fa-edit"></i></a>
-            <a href="/admin/assign"><i class="fas fa-exchange-alt"></i></a>
-            <a href="/admin/directory"><i class="fas fa-address-book"></i></a>
-        </div>
-    </footer>
+  <footer>
+    <div id="adminpagination">
+      <a href="/admin/home"><i class="fas fa-warehouse"></i></a>
+      <a href="/admin/create"><i class="fas fa-edit"></i></a>
+      <a href="/admin/assign"><i class="fas fa-exchange-alt"></i></a>
+      <a href="/admin/directory"><i class="fas fa-address-book"></i></a>
+    </div>
+  </footer>
 
-    <!-- Moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-    <!-- My Stuff -->
-    <script src="/assets/js/adminAssign.js"></script>
+  <!-- My Stuff -->
+  <script src="/assets/js/adminAssign.js"></script>
 
 </body>
 
