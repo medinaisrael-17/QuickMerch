@@ -67,6 +67,11 @@ hr {
     font-size: 18px;
 }
 
+p.product {
+    height: 50px;
+    overflow: scroll;
+}
+
 /* My Own Card */
 
 #routePreview {
