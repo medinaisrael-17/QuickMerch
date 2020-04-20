@@ -39,6 +39,7 @@ $(document).ready(function () {
 
     signUpForm.on("submit", function (event) {
         event.preventDefault();
+
         const userData = {
             email: emailInput.val().trim(),
             firstName: firstNameInput.val().trim(),
@@ -51,17 +52,18 @@ $(document).ready(function () {
 
         userData.lastName = nameCase(userData.lastName);
 
-        if (!verifyPassword(userData.password)){
-            return;
-        }
-
         if (!userData.email || !userData.firstName || !userData.lastName || !userData.phoneNumber || !userData.password) {
             $("#alert .msg").text("Please Fill Every Field.");
             $("#alert").fadeIn(500);
             return;
         }
 
-        // signUpUser(userData.email, userData.firstName, userData.lastName, userData.phoneNumber, userData.password);
+        if (!verifyPassword(userData.password)) {
+            return;
+        }
+
+        signUpUser(userData.email, userData.firstName, userData.lastName, userData.phoneNumber, userData.password);
+        
         emailInput.val("");
         firstNameInput.val("");
         lastNameInput.val("")
@@ -127,15 +129,44 @@ $(document).ready(function () {
 
     function verifyPassword(password) {
 
-        const  numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const upperCasedCharacters = [
+            'A',
+            'B',
+            'C',
+            'D',
+            'E',
+            'F',
+            'G',
+            'H',
+            'I',
+            'J',
+            'K',
+            'L',
+            'M',
+            'N',
+            'O',
+            'P',
+            'Q',
+            'R',
+            'S',
+            'T',
+            'U',
+            'V',
+            'W',
+            'X',
+            'Y',
+            'Z'
+        ];
 
-        let hasNum = false
+        const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-        const eachChar = password.split("")
+        let hasNum = false;
 
-        console.log(eachChar);
+        let hasUpper = false;
 
-        if (eachChar.length !== 8) {
+        const eachChar = password.split("");
+
+        if (eachChar.length < 8) {
             $("#alert .msg").text("Password Must Be At Least 8 Characters.");
             $("#alert").fadeIn(500);
             return false;
@@ -143,13 +174,21 @@ $(document).ready(function () {
 
         for (let i = 0; i < eachChar.length; i++) {
             if (numericCharacters.indexOf(eachChar[i]) !== -1) {
-                hasNum = true
+                hasNum = true;
+            }
+            if (upperCasedCharacters.indexOf(eachChar[i]) !== -1) {
+                hasUpper = true;
             }
         }
 
-        if (!hasNum) {
-            $("#alert .msg").text("Password Must Be At Least 8 Characters.");
+        if (hasUpper && hasNum) {
+            return true;
+        }
+
+        else {
+            $("#alert .msg").text("Password Must Contain A Number And A Capital Letter.");
             $("#alert").fadeIn(500);
+            return false
         }
 
     }
