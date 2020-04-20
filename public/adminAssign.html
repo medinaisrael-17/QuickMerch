@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#a3bcca"/>
+  <meta name="theme-color" content="#a3bcca" />
   <title>Assign Routes</title>
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="/assets/images/icons/icon-192x192.png">
@@ -92,21 +92,42 @@
   </div>
 
   <div class="modal fade" id="update-modal-1" data-backdrop="static" tabindex="-1" role="dialog"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Update Available!</h5>
-                </div>
-                <div class="modal-body">
-                    <p>A new version of this app is availble! Click "Reload" to update.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary RELOAD" data-dismiss="modal">Reload</button>
-                </div>
-            </div>
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Update Available!</h5>
         </div>
+        <div class="modal-body">
+          <p>A new version of this app is availble! Click "Reload" to update.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary RELOAD" data-dismiss="modal">Reload</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="unassignModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Confirm.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="myButton" style="color: red;" data-dismiss="modal">NO</button>
+          <button type="button" class="btn btn-default unassign" id="myButton" style="color: green;">YES</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <footer>
@@ -128,39 +149,39 @@
     let newWorker;
 
     $(".RELOAD").click(function () {
-        newWorker.postMessage({ action: 'skipWaiting' });
+      newWorker.postMessage({ action: 'skipWaiting' });
     });
 
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register("/service-worker.js").then(reg => {
-            reg.addEventListener("updatefound", () => {
-                newWorker = reg.installing;
+      navigator.serviceWorker.register("/service-worker.js").then(reg => {
+        reg.addEventListener("updatefound", () => {
+          newWorker = reg.installing;
 
-                newWorker.addEventListener("statechange", () => {
-                    switch (newWorker.state) {
-                        case 'installed':
+          newWorker.addEventListener("statechange", () => {
+            switch (newWorker.state) {
+              case 'installed':
 
-                            if (navigator.serviceWorker.controller) {
-                                $("#update-modal-1").modal("show");
-                            }
+                if (navigator.serviceWorker.controller) {
+                  $("#update-modal-1").modal("show");
+                }
 
-                            break;
-                    }
-                })
-            })
+                break;
+            }
+          })
         })
+      })
     };
 
     let refreshing;
 
     navigator.serviceWorker.addEventListener("controllerchange", function () {
-        if (refreshing) { return; }
+      if (refreshing) { return; }
 
-        window.location.reload();
+      window.location.reload();
 
-        refreshing = true;
+      refreshing = true;
     })
-</script>
+  </script>
 
 </body>
 

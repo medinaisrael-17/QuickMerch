@@ -1,5 +1,3 @@
-// makeCards();
-
 populate();
 
 $("#cardShowSelect").change(function () {
@@ -56,7 +54,7 @@ async function makeCards(id) {
 
     let loopThru = routeData.Routes;
 
-    if(loopThru.length === 0) {
+    if (loopThru.length === 0) {
         const h1 = $(`<h1>${firstName} ${lastName} Has No Routes Assigned</h1>`);
 
         $("#showCards").append(h1);
@@ -67,7 +65,7 @@ async function makeCards(id) {
             if (loopThru[i].isAssigned && !loopThru[i].completed) {
 
                 const assingedCard = $(`
-                    <div class="card assigned-card incomplete">
+                    <div class="card assigned-card incomplete" data-route-id=${loopThru[i].id} data-user-id=${routeData.id}>
                         <section class="left">
                             <h6>${loopThru[i].store}</h6>
                             <p class="location">${loopThru[i].location}</p>
@@ -86,7 +84,7 @@ async function makeCards(id) {
             else if ((loopThru[i].isAssigned && loopThru[i].completed)) {
 
                 const assingedCard = $(`
-                    <div class="card assigned-card complete">
+                    <div class="card assigned-card complete" data-route-id=${loopThru[i].id} data-user-id=${routeData.id}>
                         <section class="left">
                             <h6>${loopThru[i].store}</h6>
                             <p class="location">${loopThru[i].location}</p>
@@ -104,7 +102,7 @@ async function makeCards(id) {
             }
         }
         catch {
-            console.log("error");
+            console.log(err);
         }
 
     }
@@ -170,5 +168,45 @@ $(".assignButton").on("click", function (event) {
 })
 
 $(".refreshButton").on("click", function () {
-    location.reload()
+    window.location.reload()
+})
+
+$("#showCards").on("click", ".card", function (e) {
+    e.stopPropagation();
+
+    let userID = $(this).attr("data-user-id");
+
+    let routeID = $(this).attr("data-route-id");
+
+    let store = $(this).children(".left").children("h6").text();
+
+    let location = $(this).children(".left").children(".location").text();
+
+    let name = $(this).children(".right").children("h6").text();
+
+    $("#unassignModal .modal-body").html(`<p>Are you sure you want to unassign <span class="modal-store">${store}</span> on <span class="modal-location">${location}</span> from <span class="modal-name">${name}</span>?</p>`);
+
+    $("#unassignModal").modal("show");
+
+    $(".unassign").click(function () {
+
+        const data = {
+            id:routeID
+        };
+
+        $.ajax({
+            method: "PUT",
+            url: "/api/unassign",
+            data: data
+        }).then(function() {
+            routeID = '';
+            userID = '';
+
+            $("#unassignModal").modal("hide");
+
+            window.location.reload();
+            
+        })
+    })
+
 })

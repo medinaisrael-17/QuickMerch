@@ -343,6 +343,10 @@ input.directPhoneNumber {
     margin-bottom: 2em;
 }
 
+.modal-store, .modal-location, .modal-name {
+    color: #6BADD2;
+}
+
 /* Footer */
 
 footer {
