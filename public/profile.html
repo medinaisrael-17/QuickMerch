@@ -23,6 +23,7 @@
 
     <!-- My Stuff -->
     <link href="./assets/css/pages.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.webmanifest" />
 </head>
 
 <body>
@@ -60,6 +61,23 @@
         </div>
     </div>
 
+    <div class="modal fade" id="update-modal-1" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update Available!</h5>
+                </div>
+                <div class="modal-body">
+                    <p>A new version of this app is availble! Click "Reload" to update.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary RELOAD" data-dismiss="modal">Reload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer>
         <div id="pagination">
@@ -70,6 +88,44 @@
     </footer>
 
     <script src="./assets/js/profile.js"></script>
+
+    <script>
+        let newWorker;
+
+        $(".RELOAD").click(function () {
+            newWorker.postMessage({ action: 'skipWaiting' });
+        });
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("/service-worker.js").then(reg => {
+                reg.addEventListener("updatefound", () => {
+                    newWorker = reg.installing;
+
+                    newWorker.addEventListener("statechange", () => {
+                        switch (newWorker.state) {
+                            case 'installed':
+
+                                if (navigator.serviceWorker.controller) {
+                                    $("#update-modal-1").modal("show");
+                                }
+
+                                break;
+                        }
+                    })
+                })
+            })
+        };
+
+        let refreshing;
+
+        navigator.serviceWorker.addEventListener("controllerchange", function () {
+            if (refreshing) { return; }
+
+            window.location.reload();
+
+            refreshing = true;
+        })
+    </script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     $("#next-button").click(function () {
         $("#initial-modal").modal("hide");
-        
+
         // See if user is on Windows
         if (navigator.userAgent.indexOf("Android") !== -1) {
             $("#android-modal-1").modal("show");
@@ -46,7 +46,14 @@ $(document).ready(function () {
             phoneNumber: phoneInput.val().trim(),
             password: passwordInput.val()
         };
-        console.log(userData);
+
+        userData.firstName = nameCase(userData.firstName);
+
+        userData.lastName = nameCase(userData.lastName);
+
+        if (!verifyPassword(userData.password)){
+            return;
+        }
 
         if (!userData.email || !userData.firstName || !userData.lastName || !userData.phoneNumber || !userData.password) {
             $("#alert .msg").text("Please Fill Every Field.");
@@ -54,7 +61,7 @@ $(document).ready(function () {
             return;
         }
 
-        signUpUser(userData.email, userData.firstName, userData.lastName, userData.phoneNumber, userData.password);
+        // signUpUser(userData.email, userData.firstName, userData.lastName, userData.phoneNumber, userData.password);
         emailInput.val("");
         firstNameInput.val("");
         lastNameInput.val("")
@@ -88,7 +95,7 @@ $(document).ready(function () {
             $("#alert").fadeIn(500);
             return;
         };
-        
+
         $("#alert .msg").text("Account Found! Please Log In.");
         $("#alert").fadeIn(500);
     }
@@ -104,4 +111,46 @@ $(document).ready(function () {
         $("#eye").removeClass("fa fa-eye-slash");
         $("#eye").addClass("fa fa-eye");
     })
+
+    function nameCase(word) {
+
+        const eachLetter = word.split("")
+
+        eachLetter[0] = eachLetter[0].toUpperCase();
+
+        for (let i = 1; i < eachLetter.length; i++) {
+            eachLetter[i] = eachLetter[i].toLowerCase();
+        };
+
+        return eachLetter.join("");
+    }
+
+    function verifyPassword(password) {
+
+        const  numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        let hasNum = false
+
+        const eachChar = password.split("")
+
+        console.log(eachChar);
+
+        if (eachChar.length !== 8) {
+            $("#alert .msg").text("Password Must Be At Least 8 Characters.");
+            $("#alert").fadeIn(500);
+            return false;
+        }
+
+        for (let i = 0; i < eachChar.length; i++) {
+            if (numericCharacters.indexOf(eachChar[i]) !== -1) {
+                hasNum = true
+            }
+        }
+
+        if (!hasNum) {
+            $("#alert .msg").text("Password Must Be At Least 8 Characters.");
+            $("#alert").fadeIn(500);
+        }
+
+    }
 })
