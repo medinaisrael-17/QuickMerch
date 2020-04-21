@@ -225,18 +225,18 @@ input.directPhoneNumber {
     font-size: 12.5px;
 }
 
-#routeForm {
+.routeForm {
     padding: 10px;
     background-color: #f7fcff;
     border-radius: 2%;
 
 }
 
-#routeForm input {
+.routeForm input {
     width: 100%;
 }
 
-#routeForm button {
+.routeForm button {
     margin-top: 2em;
 }
 
@@ -254,7 +254,7 @@ input.directPhoneNumber {
     float: left;
 }
 
-#routeForm select {
+.routeForm select {
     margin-bottom: 0;
 }
 
@@ -368,9 +368,9 @@ footer {
     justify-content: space-around;
 }
 
-/* #adminpagination a:not(:first-of-type) {
-    margin-left: 16%;
-} */
+#adminpagination2 {
+    display: none;
+}
 
 .navigation {
     width: 100%;
@@ -481,4 +481,67 @@ footer a {
     footer {
         height: 4%;
     }
+}
+
+
+                    /* Admin Pages*/
+
+@media only screen and (min-width: 1000px) {
+    #adminpagination {
+        display: none;
+    }
+
+    #adminpagination2 {
+        font-size: 30px;
+        display: block;
+        float: right;
+    }
+
+    #adminpagination2 a {
+        margin-right: 10px;
+    }
+
+    .refreshButton {
+        display: none;
+    }
+
+    #cardShowSelect {
+        width: 17%;
+    }
+
+    #showCards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    #showCards .card {
+        width: 25em;
+    }
+
+    #assignForm {
+        width: 40em;
+        margin: auto;
+    }
+
+    #routesTable {
+        font-size: 20px;
+    }
+
+    .routeForm {
+        width: 40em;
+        margin: auto;
+    }
+
+    #employeeTable {
+        width: 80%;
+        margin: auto;
+        margin-top: 1em;
+        font-size: 25px;
+    }
+
+    #employees td {
+        overflow: hidden;
+    }
+    
 }
