@@ -486,6 +486,31 @@ footer a {
 
                     /* Admin Pages*/
 
+@media only screen and (min-width: 525px) {
+    #overview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    #overview button {
+        height: 4em;
+        width: 10em;
+        font-size: 18px;
+    }
+    
+    hr {
+        width: 100%;
+    }
+
+    #options {
+        margin-top: 1em;
+    }
+
+    footer {
+        height: 8%;
+    }
+}
+
 @media only screen and (min-width: 1000px) {
     #adminpagination {
         display: none;
