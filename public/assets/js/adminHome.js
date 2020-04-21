@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $(".navigation").on("click", function () {
         const location = $(this).attr("data-location");
-        console.log(location);
+
         switch (location) {
             case "create":
                 window.location.replace("/admin/create")
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     $(".CONFIRM").on("click", function() {
         $.get("/api/allroutes").then(function (data) {
-            console.log(data);
+
             for (let i = 0; i < data.length; i++) {
                 const update = {
                     id: data[i].id
@@ -30,7 +30,7 @@ $(document).ready(function () {
                     url: "/api/unassign",
                     data: update
                 }).then(function() {
-                    console.log("Done with " + data[i].id);
+                    
                 })
             }
                 $("#confirmModal").modal("hide");

@@ -19,23 +19,23 @@ $(document).ready(function () {
 
 
     $.get("/api/user_data").then(function (data) {
-        console.log(data);
+
         $("#username").text(data.firstName);
         user_id = data.id
-        console.log(user_id);
+
 
         $.get(`/api/user_routes/${user_id}`).then(function (res) {
             if (res.isAdmin === true) {
                 window.location.replace("/admin/home");
             }
-            console.log(res);
+   
             const routeData = res.Routes;
             loadCards(routeData);
         })
     })
 
     function loadCards(data) {
-        console.log(data);
+
 
         if (data.length === 0) {
             routePreviewDiv.html("");

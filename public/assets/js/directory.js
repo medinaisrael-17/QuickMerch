@@ -1,21 +1,9 @@
 $.get("/api/allusers").then(function (data) {
-    console.log(data);
+
 
     makeTable(data);
 })
 
-// $(document).on("click", ".directPhoneNumber", function () {
-//     console.log($(this));
-//     console.log($(this).val());
-//     const numberToCopy = $(this);
-//     numberToCopy.select();
-//     //mobile
-//     // numberToCopy.setSelectionRange(0, 99999);
-//     document.execCommand("copy");
-//     console.log("Copied " + numberToCopy.val());
-//     $(".modal-body").text(`Copied ${numberToCopy.val()} to clipboard!`)
-//     $("#exampleModalCenter").modal("show");
-// })
 
 function formatPhoneNumber(phoneNumber) {
     const cleaned = ('' + phoneNumber).replace(/\D/g, '')
@@ -29,7 +17,7 @@ function formatPhoneNumber(phoneNumber) {
 }
 
 function makeTable(data) {
-    console.log(data);
+
     for (let i = 0; i < data.length; i++) {
         if (!data[i].isAdmin) {
             const formattedNumber = formatPhoneNumber(data[i].phoneNumber);
@@ -43,7 +31,7 @@ function makeTable(data) {
             $("#employeeTable").append(tableElement);
         }
         else {
-            console.log("skipped");
+            
         }
     }
 }

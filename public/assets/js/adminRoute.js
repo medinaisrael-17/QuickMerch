@@ -12,7 +12,7 @@ getExistingRoutes();
 
 function getExistingRoutes() {
     $.get("/api/allroutes").then(function (data) {
-        console.log(data);
+
         makeTable(data);
 
 
@@ -104,8 +104,6 @@ $(".CREATE").on("click", function (e) {
         time: routeTime,
         product: $("#storeProduct").val().trim()
     }
-
-    console.log(newRoute);
 
     $.post("/api/routes", newRoute).then(function () {
         getExistingRoutes();

@@ -19,9 +19,6 @@ async function pageLoad() {
     //wait for the set route function 
     await setRoutes(user_id);
 
-
-    console.log(routeData);
-
     //if no data then display that on the page
     if (routeData.length === 0) {
         overViewDiv.html("");

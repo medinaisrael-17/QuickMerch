@@ -34,7 +34,6 @@ function getEmployees() {
 function getUserInfo(id) {
     return new Promise((resolve, reject) => {
         $.get(`/api/user/${id}`).then(data => {
-            console.log(data);
             resolve(data);
         })
     })
@@ -45,8 +44,6 @@ async function makeCards(id) {
 
 
     const routeData = await getIndRoutes(id);
-
-    console.log(routeData);
 
     let firstName = routeData.firstName;
 
@@ -153,8 +150,6 @@ $(".assignButton").on("click", function (event) {
         user_id: $("#employeeSelect").val(),
         id: $("#routeSelect").val()
     }
-
-    console.log(assinger);
 
     $.ajax({
         method: "PUT",

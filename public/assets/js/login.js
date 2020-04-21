@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    // $(document).click("button", function(event) {
-    //     event.preventDefault();
-    // });
 
     const loginForm = $("form.login");
     const emailInput = $("input#email-input");
@@ -52,8 +49,9 @@ $(document).ready(function () {
 
     function handleLoginErr(err) {
         console.log(err);
+
         if (err.status == 401) {
-            console.log("caught the err");
+            
             $("#alert .msg").text("Incorrect Username or Password!");
             $("#alert").fadeIn(500);
             return;

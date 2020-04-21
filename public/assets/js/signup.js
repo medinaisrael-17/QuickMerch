@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    console.log(navigator.userAgent);
-
     const visited = localStorage.getItem("visited");
 
     if (!visited) {
@@ -92,7 +90,7 @@ $(document).ready(function () {
         const actaulErr = JSON.parse(strErr);
 
         if (actaulErr.errors[0].message == "users.email must be unique") {
-            console.log("In err");
+
             $("#alert .msg").text("Account Found! Please Log In.");
             $("#alert").fadeIn(500);
             return;
