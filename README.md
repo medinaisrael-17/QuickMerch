@@ -5,7 +5,10 @@ QuickMerch is a Progressive Web App (PWA) that allows admins to assign routes to
 
 [Learn more about Progressive Web Apps](https://web.dev/pwa-checklist/).
 
-<img alt = "QuickMerch App Icon" title = "QuickMerch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" width = 400/>
+<p align="center">
+    <img alt = "QuickMerch App Icon" title = "QuickMerch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" width = 400/>
+</p>
+
 
 ## Installation
 
