@@ -1,18 +1,18 @@
-# [QuickMerch](https://quickmerch.app/) &middot; Created By Israel Medina
+# [Quick Merch](https://quickmerch.app/) &middot; Created By Israel Medina
 
-QuickMerch is a Progressive Web App (PWA) that allows admins to assign routes to merchandisers and merchandisers to see their routes for the day. 
+Quick Merch is a Progressive Web App (PWA) that allows admins to assign routes to merchandisers and merchandisers to see their routes for the day. 
 
 
 [Learn more about Progressive Web Apps](https://web.dev/pwa-checklist/).
 
 <p align="center">
-    <img alt = "QuickMerch App Icon" title = "QuickMerch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" width = 500/>
+    <img alt = "Quick Merch App Icon" title = "Quick Merch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" width = 500/>
 </p>
 
 
 ## Installation
 
-QuickMerch can be downloaded on both desktop and mobile! Visit the [website](https://quickmerch.app) on **_Google Chrome_** for Android or dekstop, or **_Safari_** for iPhone/iPad, and follow the on-screen instructions.  
+Quick Merch can be downloaded on both desktop and mobile! Visit the [website](https://quickmerch.app) on **_Google Chrome_** for Android or dekstop, or **_Safari_** for iPhone/iPad, and follow the on-screen instructions.  
 
 Once you get the site you can sign up or login in as an existing user. Admins will have the option to sign in as admin if they have the appropriate credentials. 
 
@@ -61,7 +61,7 @@ Once you get the site you can sign up or login in as an existing user. Admins wi
 
 ## Technologies
 
-QuickMerch is a Full Stack Progressive Web App. 
+Quick Merch is a Full Stack Progressive Web App. 
 
 ### Back End
 
@@ -83,11 +83,11 @@ QuickMerch is a Full Stack Progressive Web App.
 
 ### PWA
 
-* QuickMerch has been made a Progressive Web App through the use of a **service worker** and **webmanifest** allowing the website to cache necessary files. 
+* Quick Merch has been made a Progressive Web App through the use of a **service worker** and **webmanifest** allowing the website to cache necessary files. 
 
 ### Deployment 
 
-QuickMerch has been deployed on Heroku with the domain registered under Google Domains. Heroku has also provided an SSL Certificate allowing for even more security when accessing the site. 
+Quick Merch has been deployed on Heroku with the domain registered under Google Domains. Heroku has also provided an SSL Certificate allowing for even more security when accessing the site. 
 
 ## Contributors
 
