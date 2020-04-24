@@ -23,6 +23,8 @@ Once you get the site you can sign up or login in as an existing user. Admins wi
 
 ### Merchandisers Views 
 
+<p> 
+
 <img alt = "Sign Up Page" title = "Sign Up Page" src="./public/assets/images/README-images/IMG_2272.PNG"  width = 200 />
 
 <img alt = "User Home Page" title = "User Home Page" src="./public/assets/images/README-images/IMG_2273.PNG"  width = 200 />
@@ -33,7 +35,7 @@ Once you get the site you can sign up or login in as an existing user. Admins wi
 
 <img alt = "Profile Page" title = "Profile Page" src="./public/assets/images/README-images/IMG_2277.PNG"  width = 200 />
 
-
+</p>
 
 --- 
 
