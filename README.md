@@ -5,7 +5,7 @@ QuickMerch is a Progressive Web App (PWA) that allows admins to assign routes to
 
 [Learn more about Progressive Web Apps](https://web.dev/pwa-checklist/).
 
-<img alt = "QuickMerch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" style="width: 300px; margin-left: 35%" />
+<img alt = "QuickMerch App Icon" title = "QuickMerch App Icon" src="./public/assets/images/README-images/IMG_2271.jpg" width = 400/>
 
 ## Installation
 
@@ -20,15 +20,15 @@ Once you get the site you can sign up or login in as an existing user. Admins wi
 
 ### Merchandisers Views 
 
-<img alt = "Sign Up Page" src="./public/assets/images/README-images/IMG_2272.PNG" style="width: 150px;" />
+<img alt = "Sign Up Page" title = "Sign Up Page" src="./public/assets/images/README-images/IMG_2272.PNG"  width = 200 />
 
-<img alt = "User Home Page" src="./public/assets/images/README-images/IMG_2273.PNG" style="width: 150px; margin-left: 1%" />
+<img alt = "User Home Page" title = "User Home Page" src="./public/assets/images/README-images/IMG_2273.PNG"  width = 200 />
 
-<img alt = "Routes Incomplete Page" src="./public/assets/images/README-images/IMG_2274.PNG" style="width: 150px; margin-left: 1%" />
+<img alt = "Routes Incomplete Page" title = "Routes Incomplete Page" src="./public/assets/images/README-images/IMG_2274.PNG"  width = 200 />
 
-<img alt = "Routes Completed Page" src="./public/assets/images/README-images/IMG_2276.PNG" style="width: 150px; margin-left: 1%" />
+<img alt = "Routes Completed Page" title = "Routes Completed Page" src="./public/assets/images/README-images/IMG_2276.PNG"  width = 200 />
 
-<img alt = "Profile Page" src="./public/assets/images/README-images/IMG_2277.PNG" style="width: 150px;margin-left: 1%" />
+<img alt = "Profile Page" title = "Profile Page" src="./public/assets/images/README-images/IMG_2277.PNG"  width = 200 />
 
 
 
@@ -36,17 +36,17 @@ Once you get the site you can sign up or login in as an existing user. Admins wi
 
 ### Admin Views
 
-<img alt = "Admin Home Page" src="./public/assets/images/README-images/IMG_2278.PNG" style="width: 150px;" />
+<img alt = "Admin Home Page" title = "Admin Home Page" src="./public/assets/images/README-images/IMG_2278.PNG"  width = 200 />
 
-<img alt = "Create Routes Page" src="./public/assets/images/README-images/IMG_2279.PNG" style="width: 150px;margin-left: 1%" />
+<img alt = "Create Routes Page" title = "Create Routes Page" src="./public/assets/images/README-images/IMG_2279.PNG"  width = 200 />
 
-<img alt = "Create Routes Page Cont." src="./public/assets/images/README-images/IMG_2280.PNG" style="width: 150px;margin-left: 1%" />
+<img alt = "Create Routes Page Cont." title = "Create Routes Page Cont." src="./public/assets/images/README-images/IMG_2280.PNG"  width = 200 />
 
-<img alt = "Assign Routes Page" src="./public/assets/images/README-images/IMG_2281.PNG" style="width: 150px;margin-left: 1%" />
+<img alt = "Assign Routes Page" title = "Assign Routes Page" src="./public/assets/images/README-images/IMG_2281.PNG"  width = 200 />
 
-<img alt = "Assign Routes Alt." src="./public/assets/images/README-images/IMG_2282.PNG" style="width: 150px;margin-left: 1%" />
+<img alt = "Assign Routes" title = "Assign Routes"  src="./public/assets/images/README-images/IMG_2282.PNG"  width = 200 />
 
-<img alt = "Directory Page" src="./public/assets/images/README-images/IMG_2284.PNG" style="width: 150px;" />
+<img alt = "Directory Page" title = "Directory Page" src="./public/assets/images/README-images/IMG_2284.PNG"  width = 200 />
 
 ---
 
